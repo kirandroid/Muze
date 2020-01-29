@@ -24,6 +24,9 @@ flutter:
   assets:
     - assets/images/logo.png
   fonts:
+    - family: MuzeIcons
+      fonts:
+        - asset: assets/fonts/MuzeIcons.ttf
     - family: Montserrat
       fonts:
         - asset: assets/fonts/Montserrat-Light.otf

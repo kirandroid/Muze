@@ -9,10 +9,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:auto_route/router_utils.dart';
 import 'package:muze/root.dart';
 import 'package:muze/screens/onboarding/pages/customize_screen.dart';
+import 'package:muze/screens/main/main_screen.dart';
 
 class Router {
   static const rootScreen = '/';
   static const customizeScreen = '/customize-screen';
+  static const mainScreen = '/main-screen';
   static GlobalKey<NavigatorState> get navigatorKey =>
       getNavigatorKey<Router>();
   static NavigatorState get navigator => navigatorKey.currentState;
@@ -28,6 +30,11 @@ class Router {
       case Router.customizeScreen:
         return MaterialPageRoute(
           builder: (_) => CustomizeScreen(),
+          settings: settings,
+        );
+      case Router.mainScreen:
+        return MaterialPageRoute(
+          builder: (_) => MainScreen(),
           settings: settings,
         );
       default:

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:muze/routes/router.gr.dart';
 import 'package:muze/screens/onboarding/widgets/option.dart';
 import 'package:muze/utils/colors.dart';
 import 'package:muze/utils/sizes.dart';
@@ -70,6 +71,7 @@ class _CustomizeScreenState extends State<CustomizeScreen> {
                 ],
               ),
             ),
+            //Iterate a list for column children
             Column(
                 children: titles
                     .asMap()
@@ -80,7 +82,7 @@ class _CustomizeScreenState extends State<CustomizeScreen> {
                               top: UISize.width(40),
                               bottom: i + 1 == titles.length
                                   ? UISize.width(60)
-                                  : 0),
+                                  : 0), //If it is last item, add a large bottom padding
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
@@ -100,52 +102,29 @@ class _CustomizeScreenState extends State<CustomizeScreen> {
                                     scrollDirection: Axis.horizontal,
                                     itemBuilder: (context, index) {
                                       var option = item["options"][index];
-                                      if (index == 0) {
-                                        return Padding(
-                                          padding: EdgeInsets.only(
-                                              left: UISize.width(30)),
-                                          child: Option(
-                                            optionName: option,
-                                            onPressed: () {
-                                              setState(() {
-                                                selectedParentOption = i;
-                                                selectedChildOption = index;
-                                              });
-                                            },
-                                            value: selectedChildOption ==
-                                                        index &&
-                                                    selectedParentOption == i
-                                                ? true
-                                                : false,
-                                            parentIndex:
-                                                i >= UIColors.gradient.length
-                                                    ? 0
-                                                    : i,
-                                          ),
-                                        );
-                                      } else {
-                                        return Option(
+                                      return Padding(
+                                        padding: EdgeInsets.only(
+                                            left: index == 0
+                                                ? UISize.width(30)
+                                                : 0), // If it is first item add a left padding
+                                        child: Option(
                                           optionName: option,
                                           onPressed: () {
                                             setState(() {
                                               selectedParentOption = i;
                                               selectedChildOption = index;
                                             });
-                                            print(
-                                                "Clicked Parent Index $i of Children Index $index");
-                                            print(
-                                                "Gradient length = ${UIColors.gradient.length}");
                                           },
                                           value: selectedChildOption == index &&
                                                   selectedParentOption == i
                                               ? true
-                                              : false,
-                                          parentIndex:
-                                              i >= UIColors.gradient.length
-                                                  ? 0
-                                                  : i,
-                                        );
-                                      }
+                                              : false, //Enabling or disabling the option
+                                          parentIndex: i >=
+                                                  UIColors.gradient.length
+                                              ? 0
+                                              : i, //Parent index for separating gradients for each item
+                                        ),
+                                      );
                                     }),
                               )
                             ],
@@ -158,7 +137,9 @@ class _CustomizeScreenState extends State<CustomizeScreen> {
       ),
       floatingActionButton: FloatingActionButton.extended(
         backgroundColor: UIColors.white,
-        onPressed: () {},
+        onPressed: () {
+          Router.navigator.pushReplacementNamed(Router.mainScreen);
+        },
         label: Text(
           "SKIP THIS STEP",
           style: StyleText.semiBoldMontserrat.copyWith(
