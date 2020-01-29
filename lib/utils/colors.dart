@@ -19,11 +19,26 @@ class UIColors {
   static const Color gradient_2_2 = Color(0xFFF86A6A);
   static Color gradient_2_shadow = Color.fromRGBO(250, 98, 119, 0.2);
 
-  // static const Color gradient_1_1 = Color(0xFF0A74E6);
-  // static const Color gradient_1_2 = Color(0xFF58B7E6);
-  // static Color gradient_1_shadow = Color.fromRGBO(35, 138, 230, 0.2);
-
-  // static const Color gradient_1_1 = Color(0xFF0A74E6);
-  // static const Color gradient_1_2 = Color(0xFF58B7E6);
-  // static Color gradient_1_shadow = Color.fromRGBO(35, 138, 230, 0.2);
+  static List gradient = [
+    {
+      "gradient1": Color(0xFF58B7E6),
+      "gradient2": Color(0xFF0A74E6),
+      "gradientShadow": Color.fromRGBO(35, 138, 230, 0.2)
+    },
+    {
+      "gradient1": Color(0xFFF86A6A),
+      "gradient2": Color(0xFFFD558E),
+      "gradientShadow": Color.fromRGBO(250, 98, 119, 0.2)
+    },
+    {
+      "gradient1": Color(0xFF2FB2D8),
+      "gradient2": Color(0xFF2CE487),
+      "gradientShadow": Color.fromRGBO(45, 203, 1740, 0.2)
+    },
+    {
+      "gradient1": Color(0xFFFFA24F),
+      "gradient2": Color(0xFFFF5B1C),
+      "gradientShadow": Color.fromRGBO(247, 114, 48, 0.2)
+    }
+  ];
 }

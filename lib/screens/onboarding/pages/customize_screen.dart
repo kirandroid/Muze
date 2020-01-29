@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:muze/screens/onboarding/widgets/option.dart';
-import 'package:muze/screens/onboarding/widgets/selection_widget.dart';
 import 'package:muze/utils/colors.dart';
 import 'package:muze/utils/sizes.dart';
 import 'package:muze/utils/text_style.dart';
@@ -21,6 +20,14 @@ class _CustomizeScreenState extends State<CustomizeScreen> {
     {
       "title": "COMPOSERS",
       "options": ["ALL", "A.R.R", "KSDDFKJS", "CNSDJ"]
+    },
+    {
+      "title": "SINGERS",
+      "options": ["ALL", "Shankar", "Sid Sriram", "KKIIRR"]
+    },
+    {
+      "title": "YEARS",
+      "options": ["80s", "1990s", "2000s", "2020s"]
     },
   ];
 
@@ -63,21 +70,6 @@ class _CustomizeScreenState extends State<CustomizeScreen> {
                 ],
               ),
             ),
-            // Column(
-            //     children: titles
-            //         .asMap()
-            //         .map((i, item) => MapEntry(
-            //             i,
-            //             SelectionWidget(
-            //               widgetTitle: item["title"],
-            //               itemList: item["options"],
-            //               onPressed: () {
-            //                 print("test $i");
-            //               },
-            //             )))
-            //         .values
-            //         .toList())
-
             Column(
                 children: titles
                     .asMap()
@@ -115,14 +107,16 @@ class _CustomizeScreenState extends State<CustomizeScreen> {
                                                 selectedParentOption = i;
                                                 selectedChildOption = index;
                                               });
-                                              print(
-                                                  "Clicked Parent Index $i of Children Index $index");
                                             },
                                             value: selectedChildOption ==
                                                         index &&
                                                     selectedParentOption == i
                                                 ? true
                                                 : false,
+                                            parentIndex:
+                                                i >= UIColors.gradient.length
+                                                    ? 0
+                                                    : i,
                                           ),
                                         );
                                       } else {
@@ -135,11 +129,17 @@ class _CustomizeScreenState extends State<CustomizeScreen> {
                                             });
                                             print(
                                                 "Clicked Parent Index $i of Children Index $index");
+                                            print(
+                                                "Gradient length = ${UIColors.gradient.length}");
                                           },
                                           value: selectedChildOption == index &&
                                                   selectedParentOption == i
                                               ? true
                                               : false,
+                                          parentIndex:
+                                              i >= UIColors.gradient.length
+                                                  ? 0
+                                                  : i,
                                         );
                                       }
                                     }),

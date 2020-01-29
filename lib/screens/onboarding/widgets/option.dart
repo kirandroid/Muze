@@ -7,8 +7,9 @@ class Option extends StatefulWidget {
   String optionName;
   VoidCallback onPressed;
   bool value;
+  int parentIndex;
 
-  Option({this.onPressed, this.optionName, this.value});
+  Option({this.onPressed, this.optionName, this.value, this.parentIndex});
 
   @override
   _OptionState createState() => _OptionState();
@@ -29,14 +30,14 @@ class _OptionState extends State<Option> {
                     begin: Alignment.bottomLeft,
                     end: Alignment.topRight,
                     colors: [
-                        UIColors.gradient_2_2,
-                        UIColors.gradient_2_1,
+                        UIColors.gradient[widget.parentIndex]["gradient1"],
+                        UIColors.gradient[widget.parentIndex]["gradient2"]
                       ])
                 : null,
             boxShadow: [
               BoxShadow(
                 color: widget.value
-                    ? UIColors.gradient_2_shadow
+                    ? UIColors.gradient[widget.parentIndex]["gradientShadow"]
                     : Colors.transparent,
                 blurRadius: 40.0,
               )
