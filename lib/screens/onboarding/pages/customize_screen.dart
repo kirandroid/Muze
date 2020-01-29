@@ -76,7 +76,11 @@ class _CustomizeScreenState extends State<CustomizeScreen> {
                     .map((i, item) => MapEntry(
                         i,
                         Padding(
-                          padding: EdgeInsets.only(top: UISize.width(40)),
+                          padding: EdgeInsets.only(
+                              top: UISize.width(40),
+                              bottom: i + 1 == titles.length
+                                  ? UISize.width(60)
+                                  : 0),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
@@ -152,6 +156,16 @@ class _CustomizeScreenState extends State<CustomizeScreen> {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton.extended(
+        backgroundColor: UIColors.white,
+        onPressed: () {},
+        label: Text(
+          "SKIP THIS STEP",
+          style: StyleText.semiBoldMontserrat.copyWith(
+              color: UIColors.textDark, fontSize: UISize.fontSize(12)),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
