@@ -46,48 +46,62 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: UISize.width(15)),
-                child: TextField(
-                  autocorrect: false,
-                  autofocus: false,
-                  keyboardType: TextInputType.text,
-                  textInputAction: TextInputAction.search,
-                  textAlignVertical: TextAlignVertical.center,
-                  style: StyleText.mediumMontserrat.copyWith(
-                      fontSize: UISize.fontSize(13), color: UIColors.textDark),
-                  decoration: InputDecoration(
-                    suffix: InkWell(
-                      onTap: () {},
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 8),
-                        child: SizedBox(
-                          child: SvgPicture.asset(
-                            "assets/images/discover.svg",
-                            height: 10,
-                            width: 10,
-                          ),
+                  padding: EdgeInsets.symmetric(horizontal: UISize.width(15)),
+                  child: Stack(
+                    children: <Widget>[
+                      TextField(
+                        autocorrect: false,
+                        autofocus: false,
+                        keyboardType: TextInputType.text,
+                        textInputAction: TextInputAction.search,
+                        textAlignVertical: TextAlignVertical.center,
+                        style: StyleText.mediumMontserrat.copyWith(
+                            fontSize: UISize.fontSize(13),
+                            color: UIColors.textDark),
+                        decoration: InputDecoration(
+                          isDense: true,
+                          contentPadding: EdgeInsets.only(
+                              top: UISize.width(13),
+                              bottom: UISize.width(13),
+                              left: UISize.width(15)),
+                          hintText: "Search",
+                          hintStyle: StyleText.mediumMontserrat.copyWith(
+                              fontSize: UISize.fontSize(13),
+                              color: UIColors.textDark),
+                          focusedBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.circular(UISize.width(15)),
+                              borderSide:
+                                  BorderSide(color: UIColors.mediumGrey)),
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.circular(UISize.width(15)),
+                              borderSide: BorderSide(
+                                  color: UIColors.inactiveBorderColor)),
                         ),
                       ),
-                    ),
-                    isDense: true,
-                    contentPadding: EdgeInsets.only(
-                        top: UISize.width(13),
-                        bottom: UISize.width(13),
-                        left: UISize.width(15)),
-                    hintText: "Search",
-                    hintStyle: StyleText.mediumMontserrat.copyWith(
-                        fontSize: UISize.fontSize(13),
-                        color: UIColors.textDark),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(UISize.width(15)),
-                        borderSide: BorderSide(color: UIColors.mediumGrey)),
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(UISize.width(15)),
-                        borderSide:
-                            BorderSide(color: UIColors.inactiveBorderColor)),
-                  ),
-                ),
-              ),
+                      //The suffix in textfield had lots of UX problems so had to use stack :/
+                      Positioned(
+                        right: 0,
+                        top: 0,
+                        bottom: 0,
+                        child: InkWell(
+                          onTap: () {},
+                          borderRadius: BorderRadius.circular(25),
+                          child: Container(
+                            alignment: Alignment.center,
+                            height: UISize.width(10),
+                            width: 30,
+                            child: SvgPicture.asset(
+                              "assets/images/discover.svg",
+                              height: 10,
+                              width: 10,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  )),
               SizedBox(
                 height: UISize.width(221),
                 child: ListView.builder(

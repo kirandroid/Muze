@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:muze/routes/router.gr.dart';
 import 'package:muze/screens/onboarding/widgets/option.dart';
 import 'package:muze/utils/colors.dart';
+import 'package:muze/utils/local_data.dart';
 import 'package:muze/utils/sizes.dart';
 import 'package:muze/utils/text_style.dart';
 
@@ -13,25 +14,6 @@ class CustomizeScreen extends StatefulWidget {
 }
 
 class _CustomizeScreenState extends State<CustomizeScreen> {
-  List titles = [
-    {
-      "title": "LANGUAGE",
-      "options": ["Hindi", "Tamil", "English", "Nepali"]
-    },
-    {
-      "title": "COMPOSERS",
-      "options": ["ALL", "A.R.R", "KSDDFKJS", "CNSDJ"]
-    },
-    {
-      "title": "SINGERS",
-      "options": ["ALL", "Shankar", "Sid Sriram", "KKIIRR"]
-    },
-    {
-      "title": "YEARS",
-      "options": ["80s", "1990s", "2000s", "2020s"]
-    },
-  ];
-
   int selectedChildOption = 0;
   int selectedParentOption = 0;
 

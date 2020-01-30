@@ -81,3 +81,22 @@ List musicTopicList = [
   {"title": "Weekly Top 15", "subtitle": "Top 15 in the last week"},
   {"title": "Latest Music", "subtitle": "Latest Trending Music"},
 ];
+
+List titles = [
+  {
+    "title": "LANGUAGE",
+    "options": ["Hindi", "Tamil", "English", "Nepali"]
+  },
+  {
+    "title": "COMPOSERS",
+    "options": ["ALL", "A.R.R", "KSDDFKJS", "CNSDJ"]
+  },
+  {
+    "title": "SINGERS",
+    "options": ["ALL", "Shankar", "Sid Sriram", "KKIIRR"]
+  },
+  {
+    "title": "YEARS",
+    "options": ["80s", "1990s", "2000s", "2020s"]
+  },
+];
