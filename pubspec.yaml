@@ -11,6 +11,8 @@ dependencies:
   flutter_screenutil: ^0.6.0
   cupertino_icons: ^0.1.2
   auto_route: ^0.2.1
+  cached_network_image: ^2.0.0
+  shimmer: ^1.0.1
 
 dev_dependencies:
   flutter_test:
