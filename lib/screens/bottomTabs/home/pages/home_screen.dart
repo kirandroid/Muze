@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:muze/routes/router.gr.dart';
 import 'package:muze/screens/bottomTabs/home/widgets/music_item.dart';
 import 'package:muze/screens/bottomTabs/home/widgets/music_topic_item.dart';
 import 'package:muze/utils/colors.dart';
@@ -145,7 +146,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   letterSpacing: 2)),
                                     ),
                                     InkWell(
-                                      onTap: () {},
+                                      onTap: () {
+                                        Router.navigator.pushNamed(
+                                            Router.viewAllScreen,
+                                            arguments: ViewAllScreenArguments(
+                                                title: item["title"],
+                                                musicList: item["music"]));
+                                      },
                                       child: Padding(
                                         padding: EdgeInsets.symmetric(
                                             horizontal: UISize.width(15),
@@ -164,7 +171,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 SizedBox(
                                   height: UISize.width(138),
                                   child: ListView.builder(
-                                      itemCount: item["music"].length,
+                                      itemCount: 5,
                                       scrollDirection: Axis.horizontal,
                                       itemBuilder: (context, index) {
                                         var music = item["music"][index];
