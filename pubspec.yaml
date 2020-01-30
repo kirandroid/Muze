@@ -23,6 +23,8 @@ flutter:
 
   assets:
     - assets/images/logo.png
+    - assets/images/group.png
+    - assets/images/blueThing.png
   fonts:
     - family: MuzeIcons
       fonts:

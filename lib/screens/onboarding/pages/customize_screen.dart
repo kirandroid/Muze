@@ -66,7 +66,9 @@ class _CustomizeScreenState extends State<CustomizeScreen> {
                   ),
                   IconButton(
                     icon: Icon(Icons.close),
-                    onPressed: () {},
+                    onPressed: () {
+                      Router.navigator.pushReplacementNamed(Router.mainScreen);
+                    },
                   )
                 ],
               ),
@@ -81,7 +83,7 @@ class _CustomizeScreenState extends State<CustomizeScreen> {
                           padding: EdgeInsets.only(
                               top: UISize.width(40),
                               bottom: i + 1 == titles.length
-                                  ? UISize.width(60)
+                                  ? UISize.width(80)
                                   : 0), //If it is last item, add a large bottom padding
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
