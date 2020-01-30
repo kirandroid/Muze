@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:muze/routes/router.gr.dart';
 import 'package:muze/utils/colors.dart';
 import 'package:muze/utils/sizes.dart';
 import 'package:muze/utils/text_style.dart';
 
 class MusicTopicItem extends StatefulWidget {
   int currentIndex;
+  String title;
+  String subtitle;
 
-  MusicTopicItem({this.currentIndex});
+  MusicTopicItem({this.currentIndex, this.title, this.subtitle});
 
   @override
   _MusicTopicItemState createState() => _MusicTopicItemState();
@@ -42,7 +45,10 @@ class _MusicTopicItemState extends State<MusicTopicItem> {
               type: MaterialType.transparency,
               child: InkWell(
                 borderRadius: BorderRadius.circular(15),
-                onTap: () {},
+                onTap: () {
+                  Router.navigator
+                      .pushNamed(Router.noUIScreen, arguments: "😣");
+                },
                 child: Container(
                     alignment: Alignment.center,
                     height: UISize.width(151),
@@ -80,7 +86,7 @@ class _MusicTopicItemState extends State<MusicTopicItem> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               Text(
-                                "What's Trending",
+                                widget.title,
                                 style: StyleText.boldMontserrat.copyWith(
                                     color: UIColors.textDark,
                                     fontSize: UISize.fontSize(14)),
@@ -88,7 +94,7 @@ class _MusicTopicItemState extends State<MusicTopicItem> {
                               Padding(
                                 padding: EdgeInsets.only(top: UISize.width(5)),
                                 child: Text(
-                                  "Trending in the week",
+                                  widget.subtitle,
                                   style: StyleText.regularMontserrat.copyWith(
                                       fontSize: UISize.fontSize(10),
                                       color: UIColors.textDark),

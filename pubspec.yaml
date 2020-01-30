@@ -13,6 +13,7 @@ dependencies:
   auto_route: ^0.2.1
   cached_network_image: ^2.0.0
   shimmer: ^1.0.1
+  flutter_svg: ^0.17.1
 
 dev_dependencies:
   flutter_test:
@@ -27,6 +28,7 @@ flutter:
     - assets/images/logo.png
     - assets/images/group.png
     - assets/images/blueThing.png
+    - assets/images/discover.svg
   fonts:
     - family: MuzeIcons
       fonts:

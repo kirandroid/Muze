@@ -75,3 +75,9 @@ List musicList = [
     ]
   },
 ];
+
+List musicTopicList = [
+  {"title": "What's Trending", "subtitle": "Trending in the week"},
+  {"title": "Weekly Top 15", "subtitle": "Top 15 in the last week"},
+  {"title": "Latest Music", "subtitle": "Latest Trending Music"},
+];

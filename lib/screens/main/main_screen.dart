@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:muze/screens/bottomTabs/discover/pages/discover_screen.dart';
 import 'package:muze/screens/bottomTabs/home/pages/home_screen.dart';
-import 'package:muze/screens/bottomTabs/myList/pages/my_list_screen.dart';
-import 'package:muze/screens/bottomTabs/myProfile/pages/my_profile_screen.dart';
+import 'package:muze/screens/bottomTabs/home/pages/no_ui_screen.dart';
 import 'package:muze/utils/colors.dart';
 import 'package:muze/utils/muze_icons_icons.dart';
 import 'package:muze/utils/sizes.dart';
@@ -15,23 +13,22 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
-  PageController pageController = PageController(
-    initialPage: 0,
-    keepPage: true,
-  );
+  final _tabs = [
+    HomeScreen(),
+    NoUIScreen(
+      emoji: "😕",
+    ),
+    NoUIScreen(
+      emoji: "😞",
+    ),
+    NoUIScreen(
+      emoji: "😒",
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: PageView(
-        physics: NeverScrollableScrollPhysics(),
-        controller: pageController,
-        children: <Widget>[
-          HomeScreen(),
-          DiscoverScreen(),
-          MyListScreen(),
-          MyProfileScreen()
-        ],
-      ),
+      body: _tabs[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: true,
         showUnselectedLabels: true,
@@ -77,15 +74,13 @@ class _MainScreenState extends State<MainScreen> {
         currentIndex: _selectedIndex,
         unselectedItemColor: UIColors.mediumGrey,
         fixedColor: UIColors.primaryColor,
-        onTap: _onItemTapped,
+        onTap: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
         type: BottomNavigationBarType.fixed,
       ),
     );
-  }
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
   }
 }
