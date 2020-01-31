@@ -14,8 +14,8 @@ class CustomizeScreen extends StatefulWidget {
 }
 
 class _CustomizeScreenState extends State<CustomizeScreen> {
-  int selectedChildOption = 0;
-  int selectedParentOption = 0;
+  // int selectedChildOption = 0;
+  // int selectedParentOption = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -93,16 +93,17 @@ class _CustomizeScreenState extends State<CustomizeScreen> {
                                                 : 0), // If it is first item add a left padding
                                         child: Option(
                                           optionName: option,
-                                          onPressed: () {
-                                            setState(() {
-                                              selectedParentOption = i;
-                                              selectedChildOption = index;
-                                            });
-                                          },
-                                          value: selectedChildOption == index &&
-                                                  selectedParentOption == i
-                                              ? true
-                                              : false, //Enabling or disabling the option
+                                          // onPressed: () {
+                                          //   setState(() {
+                                          //     selectedParentOption = i;
+                                          //     selectedChildOption = index;
+                                          //   });
+                                          // },
+                                          // value: selectedChildOption == index &&
+                                          //         selectedParentOption == i
+                                          //     ? true
+                                          //     : false, //Enabling or disabling the option
+                                          value: false,
                                           parentIndex: i >=
                                                   UIColors.gradient.length
                                               ? 0

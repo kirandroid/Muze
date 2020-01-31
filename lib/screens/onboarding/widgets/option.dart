@@ -50,7 +50,7 @@ class _OptionState extends State<Option> {
           child: InkWell(
             borderRadius: BorderRadius.circular(50),
             onTap: () {
-              widget.onPressed();
+              // widget.onPressed();
               this.setState(() {
                 widget.value = !widget.value;
               });

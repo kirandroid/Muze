@@ -12,5 +12,20 @@ Future<void> main() async {
     onGenerateRoute: Router.onGenerateRoute,
     navigatorKey: Router.navigatorKey,
     home: CustomizeScreen(),
-  ));
+  )
+
+      //For previewing different device sizes
+      // DevicePreview(
+      //     builder: (context) => MaterialApp(
+      //       locale: DevicePreview.of(context).locale,
+      //       builder: DevicePreview.appBuilder,
+      //       debugShowCheckedModeBanner: false,
+      //       initialRoute: Router.customizeScreen,
+      //       onGenerateRoute: Router.onGenerateRoute,
+      //       navigatorKey: Router.navigatorKey,
+      //       home: CustomizeScreen(),
+      //     ),
+      //   ),
+
+      );
 }

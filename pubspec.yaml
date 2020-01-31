@@ -14,7 +14,7 @@ dependencies:
   cached_network_image: ^2.0.0
   shimmer: ^1.0.1
   flutter_svg: ^0.17.1
-
+  device_preview: ^0.2.6
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -31,6 +31,7 @@ flutter:
     - assets/images/blueThing.png
     - assets/images/discover.svg
     - assets/images/Oval.svg
+    - assets/images/greenOval.svg
     - assets/images/pause.svg
   fonts:
     - family: MuzeIcons

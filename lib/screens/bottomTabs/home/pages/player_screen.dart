@@ -6,6 +6,7 @@ import 'package:muze/utils/colors.dart';
 import 'package:muze/utils/sizes.dart';
 import 'package:muze/utils/text_style.dart';
 import 'package:muze/widgets/shimmerEffect.dart';
+import 'dart:ui' as ui;
 
 class PlayerScreen extends StatefulWidget {
   final String imageUrl;
@@ -58,11 +59,18 @@ class _PlayerScreenState extends State<PlayerScreen> {
                 Expanded(
                   child: Stack(
                     children: <Widget>[
-                      Align(
-                        alignment: Alignment.bottomCenter,
-                        child: SvgPicture.asset(
-                          "assets/images/Oval.svg",
-                          fit: BoxFit.cover,
+                      Positioned(
+                        bottom: -50,
+                        right: 0,
+                        left: 0,
+                        child: Container(
+                          child: SvgPicture.asset(
+                            widget.id.isEven
+                                ? "assets/images/greenOval.svg"
+                                : "assets/images/Oval.svg",
+                            fit: BoxFit.cover,
+                            key: Key(widget.id.toString()),
+                          ),
                         ),
                       ),
                       Padding(
@@ -143,32 +151,6 @@ class _PlayerScreenState extends State<PlayerScreen> {
               ],
             ),
           ),
-          // Flexible(
-          //   flex: 1,
-          //   child: Container(
-          //     color: Colors.purple,
-          //     alignment: Alignment.center,
-          //     child: Column(
-          //       mainAxisAlignment: MainAxisAlignment.center,
-          //       children: <Widget>[
-          //         Text(
-          //           widget.musicName,
-          //           style: StyleText.boldMontserrat.copyWith(
-          //               fontSize: UISize.width(20), color: UIColors.dark),
-          //         ),
-          //         Padding(
-          //           padding: EdgeInsets.only(top: UISize.width(15)),
-          //           child: Text(
-          //             widget.artist,
-          //             style: StyleText.mediumMontserrat.copyWith(
-          //                 fontSize: UISize.width(14),
-          //                 color: UIColors.mediumGrey),
-          //           ),
-          //         ),
-          //       ],
-          //     ),
-          //   ),
-          // ),
           Padding(
             padding: EdgeInsets.symmetric(vertical: UISize.width(40)),
             child: Column(
@@ -225,15 +207,26 @@ class _PlayerScreenState extends State<PlayerScreen> {
                     Flexible(
                         flex: 1,
                         child: Container(
-                          alignment: Alignment.bottomCenter,
-                          child: IconButton(
-                            icon: Icon(
-                              Icons.pause,
-                              size: 36,
-                            ),
-                            onPressed: () {},
-                          ),
-                        )),
+                            alignment: Alignment.bottomCenter,
+                            child: IconButton(
+                              onPressed: () {},
+                              icon: ShaderMask(
+                                  blendMode: BlendMode.srcIn,
+                                  shaderCallback: (Rect bounds) {
+                                    return ui.Gradient.linear(
+                                      Offset(10.0, 28.0),
+                                      Offset(28.0, 10.0),
+                                      [
+                                        UIColors.gradient[0]["gradient1"],
+                                        UIColors.gradient[0]["gradient2"]
+                                      ],
+                                    );
+                                  },
+                                  child: Icon(
+                                    Icons.pause,
+                                    size: 36,
+                                  )),
+                            ))),
                     Flexible(
                       flex: 1,
                       child: Container(
