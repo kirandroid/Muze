@@ -4,7 +4,7 @@ import 'package:muze/utils/sizes.dart';
 import 'package:muze/utils/text_style.dart';
 
 class NoUIScreen extends StatelessWidget {
-  String emoji;
+  final String emoji;
   NoUIScreen({this.emoji});
 
   @override

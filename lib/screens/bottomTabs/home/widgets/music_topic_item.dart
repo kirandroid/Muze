@@ -6,9 +6,9 @@ import 'package:muze/utils/sizes.dart';
 import 'package:muze/utils/text_style.dart';
 
 class MusicTopicItem extends StatefulWidget {
-  int currentIndex;
-  String title;
-  String subtitle;
+  final int currentIndex;
+  final String title;
+  final String subtitle;
 
   MusicTopicItem({this.currentIndex, this.title, this.subtitle});
 

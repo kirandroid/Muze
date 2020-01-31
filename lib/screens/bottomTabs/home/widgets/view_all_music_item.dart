@@ -7,10 +7,10 @@ import 'package:muze/utils/text_style.dart';
 import 'package:muze/widgets/shimmerEffect.dart';
 
 class ViewAllMusicItem extends StatefulWidget {
-  String imageUrl;
-  String musicName;
-  String artist;
-  int id;
+  final String imageUrl;
+  final String musicName;
+  final String artist;
+  final int id;
 
   ViewAllMusicItem({this.imageUrl, this.musicName, this.artist, this.id});
 

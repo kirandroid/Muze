@@ -4,10 +4,10 @@ import 'package:muze/utils/sizes.dart';
 import 'package:muze/utils/text_style.dart';
 
 class Option extends StatefulWidget {
-  String optionName;
-  VoidCallback onPressed;
+  final String optionName;
+  final VoidCallback onPressed;
   bool value;
-  int parentIndex;
+  final int parentIndex;
 
   Option({this.onPressed, this.optionName, this.value, this.parentIndex});
 

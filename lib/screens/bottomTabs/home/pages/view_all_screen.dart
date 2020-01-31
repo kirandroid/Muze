@@ -6,8 +6,8 @@ import 'package:muze/utils/sizes.dart';
 import 'package:muze/utils/text_style.dart';
 
 class ViewAllScreen extends StatelessWidget {
-  String title;
-  List musicList;
+  final String title;
+  final List musicList;
 
   ViewAllScreen({this.title, this.musicList});
 
