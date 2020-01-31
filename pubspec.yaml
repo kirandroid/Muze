@@ -27,8 +27,11 @@ flutter:
   assets:
     - assets/images/logo.png
     - assets/images/group.png
+    - assets/images/group.svg
     - assets/images/blueThing.png
     - assets/images/discover.svg
+    - assets/images/Oval.svg
+    - assets/images/pause.svg
   fonts:
     - family: MuzeIcons
       fonts:

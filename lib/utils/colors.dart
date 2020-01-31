@@ -10,6 +10,8 @@ class UIColors {
   static const Color mediumGrey = Color(0xFF757E90);
   static const Color lightGrey = Color(0xFFD9D9D9);
   static Color inactiveBorderColor = Color.fromRGBO(117, 126, 144, 0.2);
+  static const Color grey = Color(0xFFB0B0B0);
+  static const Color textGrey = Color(0xFF7E7E7E);
 
   static List gradient = [
     {

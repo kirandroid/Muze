@@ -46,9 +46,11 @@ class ViewAllScreen extends StatelessWidget {
                   .map((index, music) => MapEntry(
                       index,
                       ViewAllMusicItem(
-                          imageUrl: music["image"],
-                          musicName: music["name"],
-                          artist: music["artist"])))
+                        imageUrl: music["image"],
+                        musicName: music["name"],
+                        artist: music["artist"],
+                        id: music["id"],
+                      )))
                   .values
                   .toList()),
         )));

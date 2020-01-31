@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:muze/routes/router.gr.dart';
 import 'package:muze/utils/colors.dart';
 import 'package:muze/utils/sizes.dart';
 import 'package:muze/utils/text_style.dart';
@@ -9,8 +10,11 @@ class MusicItem extends StatefulWidget {
   int currentIndex;
   String imageUrl;
   String musicName;
+  String artist;
+  int id;
 
-  MusicItem({this.currentIndex, this.imageUrl, this.musicName});
+  MusicItem(
+      {this.currentIndex, this.imageUrl, this.musicName, this.artist, this.id});
 
   @override
   _MusicItemState createState() => _MusicItemState();
@@ -20,7 +24,14 @@ class _MusicItemState extends State<MusicItem> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Router.navigator.pushNamed(Router.playerScreen,
+            arguments: PlayerScreenArguments(
+                id: widget.id,
+                artist: widget.artist,
+                imageUrl: widget.imageUrl,
+                musicName: widget.musicName));
+      },
       borderRadius: BorderRadius.circular(12.5),
       child: Padding(
         padding: EdgeInsets.only(
@@ -36,27 +47,30 @@ class _MusicItemState extends State<MusicItem> {
               decoration: BoxDecoration(
                   color: UIColors.white,
                   borderRadius: BorderRadius.circular(12.5)),
-              child: CachedNetworkImage(
-                imageUrl: widget.imageUrl,
-                placeholder: (context, url) => Center(
-                    child: ShimmerEffect(
-                  height: UISize.width(100),
-                  width: UISize.width(100),
-                )),
-                errorWidget: (context, url, error) => Center(
-                    child: ShimmerEffect(
-                  height: UISize.width(100),
-                  width: UISize.width(100),
-                )),
-                imageBuilder: (context, imageProvider) => Container(
-                  height: UISize.width(100),
-                  width: UISize.width(100),
-                  decoration: BoxDecoration(
-                    borderRadius:
-                        BorderRadius.all(Radius.circular(UISize.width(12.5))),
-                    image: DecorationImage(
-                      image: imageProvider,
-                      fit: BoxFit.cover,
+              child: Hero(
+                tag: widget.id.toString(),
+                child: CachedNetworkImage(
+                  imageUrl: widget.imageUrl,
+                  placeholder: (context, url) => Center(
+                      child: ShimmerEffect(
+                    height: UISize.width(100),
+                    width: UISize.width(100),
+                  )),
+                  errorWidget: (context, url, error) => Center(
+                      child: ShimmerEffect(
+                    height: UISize.width(100),
+                    width: UISize.width(100),
+                  )),
+                  imageBuilder: (context, imageProvider) => Container(
+                    height: UISize.width(100),
+                    width: UISize.width(100),
+                    decoration: BoxDecoration(
+                      borderRadius:
+                          BorderRadius.all(Radius.circular(UISize.width(12.5))),
+                      image: DecorationImage(
+                        image: imageProvider,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),

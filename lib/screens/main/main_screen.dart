@@ -35,32 +35,53 @@ class _MainScreenState extends State<MainScreen> {
         backgroundColor: UIColors.white,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-              icon: Icon(MuzeIcons.home),
+              icon: Padding(
+                padding: EdgeInsets.only(bottom: UISize.width(8)),
+                child: Icon(
+                  MuzeIcons.home,
+                  size: 15,
+                ),
+              ),
               title: Text(
                 "Home",
                 style: StyleText.mediumMontserrat
-                    .copyWith(fontSize: UISize.fontSize(12)),
+                    .copyWith(fontSize: UISize.fontSize(9)),
               )),
           BottomNavigationBarItem(
-              icon: Icon(MuzeIcons.discover),
+              icon: Padding(
+                padding: EdgeInsets.only(bottom: UISize.width(8)),
+                child: Icon(MuzeIcons.discover),
+              ),
               title: Text(
                 "Discover",
                 style: StyleText.mediumMontserrat
-                    .copyWith(fontSize: UISize.fontSize(12)),
+                    .copyWith(fontSize: UISize.fontSize(9)),
               )),
           BottomNavigationBarItem(
-              icon: Icon(MuzeIcons.mylist),
+              icon: Padding(
+                padding: EdgeInsets.only(bottom: UISize.width(8)),
+                child: Icon(
+                  MuzeIcons.mylist,
+                  size: 15,
+                ),
+              ),
               title: Text(
                 "My List",
                 style: StyleText.mediumMontserrat
-                    .copyWith(fontSize: UISize.fontSize(12)),
+                    .copyWith(fontSize: UISize.fontSize(9)),
               )),
           BottomNavigationBarItem(
-              icon: Icon(MuzeIcons.user),
+              icon: Padding(
+                padding: EdgeInsets.only(bottom: UISize.width(8)),
+                child: Icon(
+                  MuzeIcons.user,
+                  size: 15,
+                ),
+              ),
               title: Text(
                 "My Profile",
                 style: StyleText.mediumMontserrat
-                    .copyWith(fontSize: UISize.fontSize(12)),
+                    .copyWith(fontSize: UISize.fontSize(9)),
               )),
         ],
         selectedLabelStyle: StyleText.mediumMontserrat.copyWith(

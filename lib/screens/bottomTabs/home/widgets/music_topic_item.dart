@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:muze/routes/router.gr.dart';
 import 'package:muze/utils/colors.dart';
 import 'package:muze/utils/sizes.dart';
@@ -75,7 +76,10 @@ class _MusicTopicItemState extends State<MusicTopicItem> {
                             ),
                             Flexible(
                               flex: 1,
-                              child: Image.asset("assets/images/group.png"),
+                              child: SvgPicture.asset(
+                                "assets/images/group.svg",
+                                width: UISize.width(132),
+                              ),
                             )
                           ],
                         ),

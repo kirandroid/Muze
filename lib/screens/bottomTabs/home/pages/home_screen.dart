@@ -179,6 +179,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                           currentIndex: index,
                                           imageUrl: music["image"],
                                           musicName: music["name"],
+                                          artist: music["artist"],
+                                          id: music["id"],
                                         );
                                       }),
                                 )
